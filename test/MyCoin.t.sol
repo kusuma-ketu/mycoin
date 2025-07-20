@@ -2,15 +2,11 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {mycoin} from "../src/mycoin.sol";
+import {MyCoin} from "../src/mycoin.sol";
 
-contract mycoinTest is Test {
+contract MyCoinTest is Test {
 
-import "forge-std/Test.sol";
-import "../contracts/MyToken.sol";
-
-contract MyTokenTest is Test {
-    mycoin MyCoin;
+    MyCoin mycoin;
 
     function setUp() public {
         token = new mycoin(1_000_000 * 10 ** 18);
@@ -29,4 +25,4 @@ contract MyTokenTest is Test {
     }
 }
 
-}
+
