@@ -2,23 +2,31 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {Counter} from "../src/Counter.sol";
+import {mycoin} from "../src/mycoin.sol";
 
-contract CounterTest is Test {
-    Counter public counter;
+contract mycoinTest is Test {
+
+import "forge-std/Test.sol";
+import "../contracts/MyToken.sol";
+
+contract MyTokenTest is Test {
+    mycoin MyCoin;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        token = new mycoin(1_000_000 * 10 ** 18);
     }
 
-    function test_Increment() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
+    function testInitialSupply() public {
+        assertEq(token.totalSupply(), 1_000_000 * 10 ** 18);
+        assertEq(token.balanceOf(address(this)), 1_000_000 * 10 ** 18);
     }
 
-    function testFuzz_SetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+    function testTransfer() public {
+        address recipient = address(0x123);
+        uint256 amount = 100 * 10 ** 18;
+        token.transfer(recipient, amount);
+        assertEq(token.balanceOf(recipient), amount);
     }
+}
+
 }
