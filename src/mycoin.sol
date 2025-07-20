@@ -8,4 +8,8 @@ contract MyCoin is ERC20, Ownable {
     constructor(uint256 initialSupply) ERC20("MyToken", "MTK") {
         _mint(msg.sender, initialSupply * 10 ** decimals());
     }
+
+    function mint(address to, uint256 amount) external OnlyOwner {
+        _mint(to, amount);
+    }
 }
