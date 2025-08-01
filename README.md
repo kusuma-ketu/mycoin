@@ -1,17 +1,18 @@
-#My Coin
+# My Coin
 
-##Project Structure
+## Project Structure
 
-<pre> solidity </pre>
+<pre> ```solidity function mint() external view {} ``` </pre>
 
-##Supported Systems
+## Supported Systems
 
-##Building
+## Building
 
-##Compile
+## Compile
 
-##Quick-start
+## Quick-start
 
-##Usage
+## Usage
 
-##Troubleshooting
+## Troubleshooting
+ 
