@@ -6,22 +6,25 @@ import {MyCoin} from "../src/mycoin.sol";
 
 contract MyCoinTest is Test {
 
+    uint256 initialSupply = 1_000_000 * 10 ** 18; 
+    address initialOwner;
     MyCoin mycoin;
 
     function setUp() public {
-        token = new mycoin(1_000_000 * 10 ** 18);
+        initialOwner = address(this);
+        mycoin = new MyCoin(initialOwner, initialSupply);
     }
 
-    function testInitialSupply() public {
-        assertEq(token.totalSupply(), 1_000_000 * 10 ** 18);
-        assertEq(token.balanceOf(address(this)), 1_000_000 * 10 ** 18);
+    function testInitialSupply() public view {
+        assertEq(mycoin.totalSupply(), 1_000_000 * 10 ** 18);
+        assertEq(mycoin.balanceOf(address(this)), 1_000_000 * 10 ** 18);
     }
 
     function testTransfer() public {
         address recipient = address(0x123);
         uint256 amount = 100 * 10 ** 18;
-        token.transfer(recipient, amount);
-        assertEq(token.balanceOf(recipient), amount);
+        mycoin.transfer(recipient, amount);
+        assertEq(mycoin.balanceOf(recipient), amount);
     }
 }
 

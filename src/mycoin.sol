@@ -25,7 +25,7 @@ contract MyCoin is ERC20, Ownable {
         emit TokensBurned(msg.sender, amount);
     }
 
-    /*function pause() external onlyOwner {
+    function pause() external onlyOwner {
         _pause();
     }
 
@@ -43,5 +43,5 @@ contract MyCoin is ERC20, Ownable {
     function snapshot() external onlyOwner {
         _snapshot();
     }
-    */
+    
 }
