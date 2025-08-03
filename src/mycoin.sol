@@ -25,23 +25,4 @@ contract MyCoin is ERC20, Ownable {
         emit TokensBurned(msg.sender, amount);
     }
 
-    /*function pause() external onlyOwner {
-        _pause();
-    }
-
-    function unpause() external onlyOwner {
-        _unpause();
-    }
-
-    function _beforeTokenTransfer(address from, address to, uint256 amount) 
-        internal
-        override
-        {
-            super._beforeTokenTransfer(from, to, amount);
-        }
-
-    function snapshot() external onlyOwner {
-        _snapshot();
-    }
-    */
 }

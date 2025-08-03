@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getContract } from "./utils/contract";
-import { ethers } from "ethers";
 import { parseUnits, formatUnits } from "ethers";
 
 
